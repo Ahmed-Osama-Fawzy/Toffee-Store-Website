@@ -1,0 +1,370 @@
+{% extends 'Fixed Side/Header.html'%}
+{% block Body %}
+<div class="Cover">
+    <h1>TOFFEE SWEETS STORE</h1>
+    <div class="Loading"></div>
+</div>
+<nav class="Main">
+    <ul>
+        {% if User == 'Visitor' and Status == 0 %}
+            <li>
+                <a href="{{ url_for('HomePage') }}"> 
+                    <img src="{{ url_for('static' , filename='images/Logo.jpeg') }}" >
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('HomePage') }}">
+                    TOFFEE
+                </a>
+            </li>
+            <li>
+                <a href="#Services">
+                    Services
+                </a>
+            </li>
+            <li>
+                <a href="#AboutUs">
+                    About us
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('PublicStore') }}">
+                    Our Store
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('LogIn') }}">
+                    Log In
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('SignUp') }}"> 
+                    Sign Up
+                </a>
+            </li>
+
+
+
+        {% elif User == 'Admin' and Status == 1 %}
+            <li>
+                <a href="{{ url_for('AdminHome') }}"> 
+                    <img src="{{ url_for('static' , filename='images/Logo.jpeg') }}" >
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('AdminHome') }}">
+                    TOFFEE
+                </a>
+            </li>
+            {% if Name %}
+                <li>
+                    Wlcome Mr.{{ Name }}    
+                </li>
+            {% endif %}
+            <li>
+                <a href="{{ url_for('SignOut') }}"> 
+                    Sign Out
+                </a>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('AdminProfile') }}"> 
+                    <input type="text" value="{{Name}}" style="display: none;" name="Username">
+                    <input type="submit" value="Profile">
+                </form>
+            </li>
+        
+
+
+
+
+        {% elif User == 'Client' and Status == 1 %}
+            <li>
+                <a href="{{ url_for('ClientHome') }}"> 
+                    <img src="{{ url_for('static' , filename='images/Logo.jpeg') }}" >
+                </a>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('ClientHome') }}"> 
+                    <input type="number" value="{{CId}}" style="display: none;" name="CId">
+                    <input type="submit" value="TOFFEE">
+                </form>
+            </li>
+            <li>
+                {% if Name %}
+                    Welcome Mr:{{ Name }}
+                {% endif %}
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('ClientOrder') }}"> 
+                    <input type="number" value="{{CId}}" style="display: none;" name="CId">
+                    <input type="submit" value="My Order">
+                </form>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('ClientStore') }}"> 
+                    <input type="number" value="{{CId}}" style="display: none;" name="CId">
+                    <input type="submit" value="The Store">
+                </form>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('ClientOrders') }}"> 
+                    <input type="number" value="{{CId}}" style="display: none;" name="CId">
+                    <input type="submit" value="Orders History">
+                </form>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('ClientCart') }}"> 
+                    <input type="number" value="{{CId}}" style="display: none;" name="CId">
+                    <input type="submit" value="My Cart">
+                </form>
+            </li>
+            <li>
+                <a href="{{ url_for('SignOut') }}">
+                    Sign Out
+                </a>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('ClientProfile') }}"> 
+                    <input type="number" value="{{CId}}" style="display: none;" name="CId">
+                    <input type="submit" value="Profile">
+                </form>
+            </li>
+
+
+
+        {% elif User == 'Owner' and Status == 1 %}
+            <li>
+                <a href="{{ url_for('OwnerHome') }}"> 
+                    <img src="{{ url_for('static' , filename='images/Logo.jpeg') }}" >
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('OwnerHome') }}">
+                    TOFFEE
+                </a>
+            </li>
+            {% if Name %}
+                <li>
+                    Wlcome Mr.{{ Name }}    
+                </li>
+            {% endif %}
+            <li>
+                <a href="{{ url_for('SignOut') }}"> 
+                    Sign Out
+                </a>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('OwnerProfile') }}"> 
+                    <input type="text" value="{{Name}}" style="display: none;" name="Username">
+                    <input type="submit" value="Profile">
+                </form>
+            </li>
+
+        {% endif %}
+    </ul>
+</nav>
+
+
+
+
+{% if User == 'Visitor' or User == 'Client' and Status == 1 %}
+    <header>
+        <h1> <span>T</span>OFFEE <span>S</span>TORE </h1>
+        <img src="{{ url_for('static' , filename='images/image.jpeg') }}">
+        <img src="{{ url_for('static' , filename='images/image.jpeg') }}">
+        <img src="{{ url_for('static' , filename='images/image.jpeg') }}">
+    </header>
+    <section id="Services" class="Services">
+        <h1> OUR <span>SERVICES</span> </h1>
+        <ul>
+            <li>
+                <div>
+                    <i class="fas fa-3x fa-shopping-cart"></i>
+                    <h2> Order Online </h2>
+                    <p> Toffee Store Toffee Store Toffee Store Toffee Store  Toffee Store Toffee Store Toffee Store Toffee Store</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <i class="fas fa-3x fa-store"></i>
+                    <h2> Order Offline </h2>
+                    <p> Toffee Store Toffee Store Toffee Store Toffee Store  Toffee Store Toffee Store Toffee Store Toffee Store</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <i class="fas fa-3x fa-brush"></i>
+                    <h2> Order Your Shapes</h2>
+                    <p> Toffee Store Toffee Store Toffee Store Toffee Store  Toffee Store Toffee Store Toffee Store Toffee Store</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <i class="fas fa-3x fa-shipping-fast"></i>
+                    <h2> Fast Delivery </h2>
+                    <p> Toffee Store Toffee Store Toffee Store Toffee Store  Toffee Store Toffee Store Toffee Store Toffee Store</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <i class="fas fa-3x fa-birthday-cake"></i>
+                    <h2> Order For Party </h2>
+                    <p> Toffee Store Toffee Store Toffee Store Toffee Store  Toffee Store Toffee Store Toffee Store Toffee Store</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section id="AboutUs" class="AboutUs">
+        <h1> <span>ABOUT</span> US </h1>
+        <div>
+            <p> Toffee Store Toffee Store Toffee Store Toffee Store  Toffee Store Toffee Store <span> Toffee Store </span> Toffee Store  Toffee Store Toffee Store Toffee Store Toffee Store Toffee Store Toffee Store Toffee Store Toffee Store Toffee Store Toffee Store Toffee Store  Toffee Store Toffee Store <span> Toffee Store </span> Toffee Store  Toffee Store Toffee Store Toffee Store Toffee Store Toffee Store Toffee Store Toffee Store</p>
+        </div>
+        
+    </section>
+
+    <section class="Products" id="Products">
+        <h1> Recently Sweets </h1>
+        <ul>
+            {% for Item in Items %}
+                    {% if loop.index < 5 %}
+                        <li>
+                            <img src="{{ url_for('static' , filename='images/sweets/'+Item[5]) }}">
+                                <span class="Category"> {{ Item[3] }} </span>
+                                <span class="Brand"> {{ Item[2] }} </span>
+                                <h2 class="Name"> {{ Item[1] }} </h2>
+                                <p class="Price"> {{ Item[4] }} EG </p>
+                                <p class="Description"> {{ Item[6] }} </p>  
+                    {% endif %}
+                    {% if Item[8] %}
+                            <p class="Discount"> Sale {{ Item[8] }}% </p>
+                    {% endif %}
+                    {% if loop.index < 5 %}
+                            <form method="post" action="">
+                                <input type="number" name="Id" value="{{ Item[0] }}" style="display: none;">
+                                <input type="number" name="CId" style="display: none" value="{{ CId }}">
+                                <input type="number" name="Status" value="1" style="display: none;">
+                                <input type="submit" value="Add To Cart">
+                            </form>
+                        </li>
+                    {% endif %}
+            {% endfor %}
+        </ul>
+    </section>
+{% endif %}
+
+{% if User == 'Admin' and Status == 1 %}
+    <section class="Two">
+        <div class="Half">
+            <img src="{{ url_for('static' , filename='images/Sweet4.jpeg') }}">
+        </div>
+        <div class="Half">
+            <ul>
+                <li>
+                    <h1> Dashboard </h1>
+                </li>
+                <li>
+                    <a href="{{ url_for('AddItem') }}">
+                        Add Item
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('ModifyItem') }}">
+                        Modify Item
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('RemoveItem') }}">
+                        Remove Item
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('AdminStore') }}">
+                        Open Store
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('AdminOrders') }}">
+                        Open Orders
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+{% endif %}
+
+{% if User == 'Owner' and Status == 1 %}
+    <section class="Two">
+        <div class="Half">
+            <img src="{{ url_for('static' , filename='images/Sweet4.jpeg') }}">
+        </div>
+        <div class="Half">
+            <ul>
+                <li>
+                    <h1> Dashboard </h1>
+                </li>
+                <li>
+                    <a href="{{ url_for('OwnerStore') }}">
+                        My Store
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('OwnerOrders') }}">
+                        Show Orders History
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('OwnerAnalysis') }}">
+                        Show Analysis History
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+{% endif %}
+
+<footer>
+    <h1> <span>CONTACT</span> US </h1>
+    <div class="Full">
+        <img src="{{ url_for('static' , filename='images/Sweet4.jpeg') }}">
+        <form>
+            <input type="email" required placeholder="enter your email">
+            <input type="text" required value="{{ User }}" style="display: none;">
+            <textarea placeholder="enter your message here" maxlength="200"></textarea>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+    <div>
+        <ul>
+            <li>
+                <a>
+                    <i class="fab fa-2x fa-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class="fab fa-2x fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class="fab fa-2x fa-whatsapp"></i>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class="fas fa-2x fa-envelope"></i>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class="fab fa-2x fa-pinterest-square"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <p> Copy Writes Reseved. Created By <span> <a> Eng.AhmedOsama </a> </span> </p>
+    </div>
+</footer>
+{% endblock %}

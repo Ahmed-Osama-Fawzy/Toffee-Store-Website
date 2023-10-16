@@ -1,0 +1,741 @@
+:root{
+    --High-Dark:rgb(53, 53, 53);
+    --Mid-Dark:rgb(60, 110, 113);
+    --Low-Dark:rgb(40, 75, 99);
+    --Low-White:rgb(217, 217, 217);    
+    --High-White:rgb(255, 255, 255);
+    --Shadow:rgb(109, 109, 109);
+}
+
+/* Start Genral Layout */
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    scroll-behavior: smooth;
+    transition: 1s;
+}
+
+body{
+    padding: 0%;
+    margin: 0%;
+    color: var(--maincolor);
+    position: relative;
+}
+
+.Cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color:var(--Shadow);
+    z-index: 10;
+    opacity: .8;
+}
+.Cover.Loading {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    border-width: 5px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: dotted;
+    border-right-style: dotted;
+    border-color:var(--High-White) ;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(50% - 150px);
+    animation: ForRight 2s linear infinite;
+}
+.Cover .Loading::before {
+    content: "";
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 100%;
+    border-width: 5px;
+    border-top-style: solid;
+    border-bottom-style: dotted ;
+    border-left-style: solid;
+    border-right-style: dotted;
+    border-color: var(--High-Dark) ;
+    animation: ForLeft 3s linear infinite;
+    margin: auto;
+}
+.Cover .Loading::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 100%;
+    border-width: 5px;
+    border-top-style: dotted ;
+    border-bottom-style: solid;
+    border-left-style: dotted;
+    border-right-style:solid ;
+    border-color: var(--Low-White) ;
+    animation: ForRight 1s linear infinite;
+    margin: auto;
+}
+@keyframes ForRight {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes ForLeft {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+nav {
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    display: block;
+    background-color: var(--Low-White);
+}
+nav ul {
+    list-style-type: none;
+    padding: 0.5%;
+    margin: 0%;
+    width: 99%;
+    padding-top: 20px;
+    gap: 5%;
+    vertical-align: middle;
+}
+nav ul li{
+    text-align: center;
+}
+nav ul li a,
+nav ul li form input{
+    padding: 0px !important;
+    margin: 0px !important;
+    padding-top: 10px;
+    background-color: transparent;
+    border: none;
+    text-decoration: none;
+    color: var(--Mid-Dark);
+    font-size: x-large;
+}
+nav:hover{
+    background-color: var(--Low-Dark);
+}
+nav:hover ul li a ,
+nav:hover ul li form input{
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--Low-White);
+}
+nav:hover ul li,
+nav ul li a:hover ,
+nav ul li:hover form input{
+    color: var(--High-White) !important;
+    cursor: pointer;
+}
+nav ul li img {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    border-radius: 100%;
+}
+
+header {
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-around;
+    gap: 20px;
+    background-color: var(--High-White);
+}
+header h1 {
+    font-size: 55px;
+    color: var(--Mid-Dark);
+    padding-top:50%;
+    padding-left: 40px;
+}
+
+header h1 span{
+    font-size: 65px;
+    color: var(--Low-Dark);
+}
+header img {
+    width: 100%;
+    height: 80%;
+    border-radius: 150px;
+}
+header img:first-of-type{
+    margin-top: 10%;
+}
+header img:nth-of-type(2){
+    margin-top: 20%;
+}
+header img:last-of-type{
+    margin-top: 30%;
+}
+
+.Services {
+    background-color: var(--Low-White);
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.Services h1 {
+    font-size: 55px;
+    color: var(--Mid-Dark);
+
+}
+.Services h1 span{
+    font-size: 65px;
+    color: var(--Low-Dark);
+}
+.Services ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    list-style: none;
+}
+.Services ul li {
+    width: 90%;
+    margin: 5%;
+    background-color: inherit;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px var(--Shadow);
+}
+.Services ul li div{
+    position: relative;
+}
+.Services ul li div::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: var(--Mid-Dark);
+    border-radius: 0px 20px;
+}
+
+.Services ul li div svg {
+    color: var(--Low-Dark);
+    margin: 40px auto auto auto ;
+}
+
+.Services ul li div h2{
+    color: var(--Low-Dark);
+    font-size: xx-large;
+}
+
+.Services ul li div p {
+    color: var(--Shadow);
+    line-height: 1.4;
+}
+
+.Services ul li:hover {
+    background-color: var(--Mid-Dark);
+}
+
+.Services ul li:hover div svg ,
+.Services ul li:hover div h2 {
+    color: var(--High-White);
+}
+
+.AboutUs{
+    text-align: center;
+    width: 100%;
+    background-color: var(--High-White);
+    padding-top: 150px;
+    padding-bottom: 100px;
+    height: 100vh;
+}
+
+.AboutUs h1 {
+    font-size: 55px;
+    color: var(--Mid-Dark);
+
+}
+.AboutUs h1 span{
+    font-size: 65px;
+    color: var(--Low-Dark);
+}
+
+.AboutUs div{
+    width: 80%;
+    padding: 5%;
+    margin: 5%;
+    box-shadow: 10px 10px 10px var(--Shadow);
+    border-radius: 20px;
+    font-size: large;
+    line-height: 1.4;
+    color: var(--High-Dark);
+}
+
+.Products {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: var(--Low-White);
+}
+
+.Products h1 {
+    font-size: 55px;
+    color: var(--Mid-Dark);
+
+}
+.Products h1 span{
+    font-size: 65px;
+    color: var(--Low-Dark);
+}
+
+.Products ul {
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    gap: 30px;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.Products ul li{
+    border-radius: 20px;
+    width: 90%;
+    height: 550px;
+    margin: 5%;
+    overflow: hidden;
+    box-shadow: 10px 10px 10px var(--Shadow);
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+}
+.Products ul li img {
+    width: 100%;
+    height: 50% !important;
+}
+
+.Products ul li span:first-of-type{
+    border-radius: 20px 0px;
+    top: 0;
+    left: 0;
+}
+.Products ul li span:last-of-type{
+    border-radius: 0px 20px;
+    top: 0;
+    right: 0;
+}
+.Products ul li p:first-of-type{
+    border-radius: 0px 20px;
+    bottom: 0;
+    left: 0;
+}
+
+.Products ul li form input{
+    border-radius: 20px 0px;
+    bottom: 0;
+    right: 0;
+    height: 50px !important;
+    border: none;
+}
+
+.Products ul li h2{
+    font-size: xx-large;
+    color: var(--Low-Dark);
+}
+
+.Products ul li p{
+    font-size: large;
+    color: var(--Mid-Dark);
+}
+.Products ul li form input , 
+.Products ul li p:first-of-type ,
+.Products ul li span:first-of-type ,
+.Products ul li span:last-of-type {
+    position: absolute;
+    font-size: larger;
+    padding: 10px;
+    width: auto;
+    background-color: var(--High-White);
+    color: var(--High-Dark);
+    height: 30px;
+    margin: 0;
+}
+
+.Products ul li form input:hover , 
+.Products ul li p:first-of-type:hover ,
+.Products ul li span:first-of-type:hover ,
+.Products ul li span:last-of-type:hover {
+    background-color: var(--High-Dark);
+    color: var(--High-White);
+}
+
+.AboutUs{
+    text-align: center;
+    width: 100%;
+    background-color: var(--High-White);
+    padding-top: 150px;
+    padding-bottom: 100px;
+    height: 100vh;
+}
+
+.AboutUs h1 {
+    font-size: 55px;
+    color: var(--Mid-Dark);
+
+}
+.AboutUs h1 span{
+    font-size: 65px;
+    color: var(--Low-Dark);
+}
+
+.AboutUs div{
+    width: 80%;
+    padding: 5%;
+    margin: 5%;
+    box-shadow: 10px 10px 10px var(--Shadow);
+    border-radius: 20px;
+    font-size: large;
+    line-height: 1.4;
+    color: var(--High-Dark);
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 70px;
+    background-color: var(--High-White);
+}
+
+footer h1 {
+    font-size: 55px;
+    color: var(--Mid-Dark);
+
+}
+footer h1 span{
+    font-size: 65px;
+    color: var(--Low-Dark);
+}
+
+footer .Full{
+    width: 80%;
+    margin: 10%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+footer .Full img{
+    height: 100%;
+    width: 100%;
+}
+
+footer .Full form input,footer div form textarea{
+    border: none;
+    border-radius: 10px;
+    color: var(--textcolor);
+    display: block;
+    width: 80%;
+    height: 40px;
+    margin: 25px auto;
+    box-shadow: 5px 5px 5px var(--textcolor);
+}
+
+footer .Full form input[type="submit"]{
+    background-color: var(--Mid-Dark);
+    color: var(--High-Dark);
+}
+footer .Full form input[type="submit"]:hover{
+    background-color: var(--High-Dark);
+    color: var(--High-White);
+}
+
+footer div ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    justify-content: space-around;
+}
+footer div ul li svg {
+    color: var(--Low-Dark);
+}
+
+footer div:last-of-type p{
+    margin:80px 30% 0px 30%;
+}
+
+footer div:last-of-type p span{
+    color: var(--secoundcolor);
+}
+
+.One {
+    width: 100%;
+}
+.One .Full{
+    width: 100%;
+    position: relative;
+}
+.One .Full img{
+    width: 100%;
+    height: 91vh;
+}
+.One .Full h1 {
+    font-size: 58px;
+    color: var(--Low-White);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.One .Full h1 span{
+    color: var(--Low-Dark);
+    font-size: 64px;
+}
+
+.One .X-Full{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    gap: 20px;
+    justify-content: space-around;
+}
+.One .X-Full h1{
+    font-size: 58px;
+    color: var(--Low-White);
+    padding: 10px;
+}
+.One .X-Full form input{
+    margin: 11%;
+    width: 50%;
+}
+.One .Full table {
+    width: 100%;
+    text-align: center;
+    font-size: large;
+    background-color: var(--Mid-White);
+}
+.One .Full table td {
+    padding: 8px;
+}
+.One .Full > table > thead > th > td{
+    color: var(--Low-Dark);
+}
+
+.One .Full > table tbody tr td img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.One .Full > table > tbody > tr > td {
+    border: 2px solid var(--Mid-White);
+    color: var(--Mid-Dark);
+}
+
+.Two .Half{
+    text-align: center;
+}
+.Two .Half form , 
+.Two .Half ul{
+    display: grid;
+    padding: 20px;
+    width: 60%;
+    margin: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: space-around;
+    gap: 20px;
+    font-size: large;
+    list-style-type: none;
+}
+
+input:not([type="radio"],[type="submit"],[type="button"]),
+.Two .Half form textarea{
+    height: 30px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px var(--Shadow);
+}
+form input[type="submit"],
+form input[type="button"],
+.Two .Half ul li {
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    font-size: larger;
+    color: var(--High-Dark);
+    background-color: var(--Low-White);
+    border: none;
+}
+.Center{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2 , 1fr);
+    gap: 40px;
+    justify-content: space-around;
+}
+.Center h1 {
+    font-size: 55px;
+    color: var(--Mid-Dark);
+
+}
+.Center h1 span{
+    font-size: 65px;
+    color: var(--Low-Dark);
+}
+
+form input[type="submit"]:hover,
+input[type="button"]:hover,
+.Two .Half ul li:hover{
+    color: var(--Low-White);
+    background-color: var(--Low-Dark);
+}
+
+.Two .Half ul li a {
+    text-decoration: none;
+    color: var(--High-Dark);
+}
+.Two .Half ul li:hover a {
+    color: var(--Low-White);
+}
+
+@media screen and (min-width:1201px) {
+    nav[class="Main"] ul{
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        justify-content: space-around;
+        gap: 20px;
+    }
+    .Two{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: space-around;
+        padding: 20px;
+        gap: 20px;
+        color: var(--Low-Dark);
+    }
+    .Two .Half{
+        position: relative;
+    }
+    .Two .Half img{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width:100%;
+        height: 80vh; 
+    }
+}
+
+@media screen and (min-width:1024px) and (max-width:1200px) {
+    nav[class="Main"] ul{
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        justify-content: space-around;
+        gap: 20px;
+    }
+    .Two{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: space-around;
+        padding: 20px;
+        gap: 20px;
+        color: var(--Low-Dark);
+    }
+    
+    .Two .Half img{
+        position: fixed;
+        top: 90px;
+        left: 40px;
+        width:50%;
+        height: 100%;
+    }
+}
+
+@media screen and (min-width:767px) and (max-width:1024px) {
+    nav[class="Main"] ul{
+        display: grid;
+        grid-template-columns: repeat(9 , 1fr);
+        justify-content: space-around;
+        gap: 20px;
+    }
+    .Two{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: space-around;
+        padding: 20px;
+        gap: 20px;
+        color: var(--Low-Dark);
+    }
+    
+    .Two .Half img{
+        position: fixed;
+        top: 90px;
+        left: 40px;
+        width:50%;
+        height: 100%;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:767px) {
+    nav[class="Main"] ul{
+        display: grid;
+        grid-template-columns:100%;
+        grid-template-rows: repeat(9 , 1fr);
+        justify-content: space-around;
+        gap: 20px;
+    }
+    .Two{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: space-around;
+        padding: 20px;
+        gap: 20px;
+        color: var(--Low-Dark);
+    }
+    
+    .Two .Half img{
+        width:100%;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width:480px) {
+    nav[class="Main"] ul{
+        display: grid;
+        grid-template-columns:100%;
+        grid-template-rows: repeat(9 , 1fr);
+        justify-content: space-around;
+        gap: 20px;
+    }
+    .Two{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: space-around;
+        padding: 20px;
+        gap: 20px;
+        color: var(--Low-Dark);
+    }
+    
+    .Two .Half img{
+        width:100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,15 @@
+{% extends 'Fixed Side/Client.html' %}
+{% block Body %}
+<section class="Two">
+    <div class="Half">
+        <img src="{{ url_for('static' , filename='images/') }}">
+    </div>
+    <div class="Half">
+        <form action="{{ url_for('Cash') }}" method="post">
+            <input type="number" name="CId" style="display: none" value="{{ CId }}">
+            <input type="number" name="OrderId" style="display: none" value="{{ OrderId }}">
+            <input type="submit" value="Get Bill">
+        </form>
+    </div>
+</section>
+{% endblock %}

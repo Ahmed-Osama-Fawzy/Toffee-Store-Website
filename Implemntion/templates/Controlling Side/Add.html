@@ -1,0 +1,19 @@
+{% extends 'Fixed Side/Header.html'%}
+{% block Body %}
+<section class="Two">
+    <div class="Half">
+        <img src="{{ url_for('static' , filename='images/Sweet4.jpeg') }}">
+    </div>
+    <div class="Half">
+        <form method="post" action="{{ url_for('GGG') }}">
+            <label> Username </label>
+            <input type="text" required placeholder="Username" name="Username">
+            <label> Password </label>
+            <input type="password" required  name="Password">
+            <label> Type </label>
+            <input type="number" required  name="Type">
+            <input type="submit" value="Insert">
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dotted Loader</title>
+    <style>
+        .Loading {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            border-width: 5px;
+            border-top-style: solid;
+            border-bottom-style: solid;
+            border-left-style: dotted;
+            border-right-style: dotted;
+            border-color:rgb(60, 110, 113) ;
+            position: absolute;
+            left: calc(50% - 150px);
+            top: calc(50% - 150px);
+            animation: ForRight 2s linear infinite;
+        }
+        .Loading::before {
+            content: "";
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 100%;
+            border-width: 5px;
+            border-top-style: solid;
+            border-bottom-style: dotted ;
+            border-left-style: solid;
+            border-right-style: dotted;
+            border-color: rgb(53, 53, 53) ;
+            animation: ForLeft 3s linear infinite;
+            margin: auto;
+        }
+        .Loading::after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 100%;
+            border-width: 5px;
+            border-top-style: dotted ;
+            border-bottom-style: solid;
+            border-left-style: dotted;
+            border-right-style:solid ;
+            border-color: rgb(40, 75, 99) ;
+            animation: ForRight 1s linear infinite;
+            margin: auto;
+        }
+        @keyframes ForRight {
+            from {
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes ForLeft {
+            from {
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+    
+    <form action="{{ url_for('HomePage') }}" method="post">
+        <input type="submit" value="ACCESS TO TOFFEE">
+    </form>
+</body>
+</html>

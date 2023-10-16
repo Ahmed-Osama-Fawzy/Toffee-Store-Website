@@ -1,0 +1,20 @@
+{% extends 'Fixed Side/Client.html' %}
+{% block Body %}
+<section class="Two">
+    <div class="Half">
+        <img src="{{ url_for('static' , filename='images/') }}">
+    </div>
+    <div class="Half">
+        <h1> Master Card Number Is "9283-3465-4355-4586" </h1>
+        <form action="{{ url_for('Visa') }}" method="post">
+            <label> Card Number 12 Numbers </label>
+            <input type="number" name="CardNumber" required>
+            <label> Card Pin Password 3 Numbers </label>
+            <input type="number" name="PinNumber" required>
+            <input type="number" name="CId" style="display: none" value="{{ CId }}">
+            <input type="number" name="OrderId" style="display: none" value="{{ OrderId }}">
+            <input type="submit" value="Get Bill">
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='Main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='all.min.css') }}">
+    <link rel="icon" href="{{ url_for('static' , filename='images/image.jpeg') }}">
+    <title>{{ title }}</title>
+    <style>
+        .Cover h1 {
+            width: fit-content;
+            height:50px;
+            background-color: rgb(60, 110, 113);
+            color: white;
+            position: relative;
+            animation:copy 3s 1s steps(15) both;
+            white-space: nowrap;
+            overflow: hidden;
+            margin: 50px auto;
+            font-size: 34px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .Cover h1::after {
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 100%;
+            right: 0;
+            top: 0;
+            background-color: black;
+        }
+        @keyframes copy {
+            from {
+                width: 0;
+            }
+            to {
+                width: 450px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    {% block Body %}
+    {% endblock %}
+    <script src="{{ url_for('static' , filename='Main.js') }}"></script>
+    <script src="{{ url_for('static' , filename='all.min.js') }}"></script>
+    <script src="{{ url_for('static' , filename='all.js') }}"></script>
+</body>
+</html>

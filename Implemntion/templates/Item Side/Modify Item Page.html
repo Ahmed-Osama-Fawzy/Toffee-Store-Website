@@ -1,0 +1,46 @@
+{% extends 'Fixed Side/Admin.html' %}
+{% block Body %}
+<section class="Two">
+    <div class="Half">
+        <img src="{{ url_for('static' , filename='images/Sweet4.jpeg') }}">
+    </div>
+    <div class="Half">
+        <h1> Modify Sweet Info </h1>
+        <form method="post" action="{{ url_for('ModifyItem') }}">
+            <label> Sweet's Id </label>
+            {% if Value %}
+                <input type="number" required name="Id" value="{{ Value }}">
+            {% else %}
+                <input type="number" required name="Id">
+            {% endif %}
+            <label> Modify Name </label>
+            <input type="text" name="Name">
+            <label> Modify Brand </label>
+            <input type="text" name="Brand">
+            <label> Modify Category </label>
+            <select name="Category">
+                <option value="T-1"> Type 1 </option>
+                <option value="T-2"> Type 2 </option>
+                <option value="T-3"> Type 3 </option>
+                <option value="T-4"> Type 4 </option>
+                <option value="T-5"> Type 5 </option>
+            </select>
+            <br><br>
+            <label> Modify Price </label>
+            <input type="number" name="Price">
+            <label> Modify Image </label>
+            <input type="file" name="Image">
+            <label> Modify Description </label>
+            <input type="text" name="Description">   
+            <label> Modify Commission </label>
+            <select name="Commission">
+                <option value="Kilo"> Kilo </option>
+                <option value="Pice"> Pice </option>
+            </select>         
+            <label> Modify Discount Percntage </label>
+            <input type="range" min="0" name="Discount" max="100">
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</section>
+{% endblock %}

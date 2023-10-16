@@ -1,0 +1,58 @@
+{% extends 'Fixed Side/Admin.html' %}
+{% block Body %}
+<section class="One">
+    <div class="X-Full">
+        <h1> Sweets Table Info </h1>
+        <form>
+            <input type="search" name="SearchValue" placeholder="Search Bar">
+        </form>
+    </div>
+    <div class="Full">
+        <table>
+            <thead>
+                <th>
+                    <td> Id </td>
+                    <td> Name </td>
+                    <td> Brand </td>
+                    <td> Category </td>
+                    <td> Price </td>
+                    <td> Image </td>
+                    <td> Description </td>
+                    <td> Comminssion </td>
+                    <td> Discount Percntage </td>
+                </th>
+            </thead>
+            <tbody>
+               {% for Item in Items %}
+                    <tr>
+                        <td> {{ loop.index }} </td>
+                        <td> {{ Item[0] }} </td>
+                        <td> {{ Item[1] }} </td>
+                        <td> {{ Item[2] }} </td>
+                        <td> {{ Item[3] }} </td>
+                        <td> {{ Item[4] }} </td>
+                        <td> 
+                            <img src="{{ url_for('static' , filename='images/Sweets/'+Item[5]) }}">
+                        </td>
+                        <td> {{ Item[6] }} </td>
+                        <td> {{ Item[7]  }} </td>
+                        <td> {{ Item[8] }} </td>
+                        <td>
+                            <form method="post" action="{{ url_for('BetaRemove') }}">
+                                <input style="display:none" type="number" value="{{ Item[0] }}" name="Id">
+                                <input type="submit" value="Remove">
+                            </form>
+                            <form method="post" action="{{ url_for('BetaModify') }}">
+                                <input style="display:none" type="number" value="{{ Item[0] }}" name="Id">
+                                <input type="submit" value="Modify">
+                            </form>
+                        </td>
+                    </tr>
+               {% endfor %}
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+</section>
+{% endblock %}

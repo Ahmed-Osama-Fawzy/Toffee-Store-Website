@@ -1,0 +1,35 @@
+{% extends 'Fixed Side/Client.html' %}
+{% block Body %}
+<section class="Two">
+    <div class="Half">
+        <img src="{{ url_for('static' , filename='images/Sweet4.jpeg') }}">
+    </div>
+    <div class="Half">
+        <h1> Welcome Back {{ Name }} </h1>
+        <div>
+            <h3> Your Points </h3>
+            <span> {{ data[0][8] }} </span>
+            <h3> Orders Number </h3>
+            <span> {{ data[0][7] }} </span>
+        </div>
+        <form method="post" action="{{ url_for('UpdateData') }}">
+            <input type="number" style="display: none;" value="{{CId}}" name="CId">
+            <label> Username </label>
+            <input type="text" placeholder="{{data[0][1]}}" name="Username">
+            <label> Email </label>
+            <input type="text" placeholder="{{data[0][3]}}" name="Email">
+            <label> Address </label>
+            <input type="text" placeholder="{{data[0][4]}}" name="Address">
+            <label> Mobile </label>
+            <input type="number" placeholder="{{data[0][5]}}" name="Mobile">
+            <label> Birth day </label>
+            <input type="date" placeholder="{{data[0][6]}}" name="Birthday">
+            <input type="submit" value="Update">
+        </form>
+        <form method="post" action="{{ url_for('BetaClientChangePassword') }}">
+            <input type="number" style="display: none;" value="{{Name}}" name="Username">
+            <input type="submit" value="Change Password">
+        </form>
+    </div>
+</section>
+{% endblock %}

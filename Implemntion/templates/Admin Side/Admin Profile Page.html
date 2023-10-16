@@ -1,0 +1,21 @@
+{% extends 'Fixed Side/Admin.html' %}
+{% block Body %}
+<section class="Two">
+    <div class="Half">
+        <img src="{{ url_for('static' , filename='images/Sweet4.jpeg') }}">
+    </div>
+    <div class="Half">
+        <ul>
+            <li>
+                <h1> Welcome Back {{ Name }} </h1>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('BetaAdminChangePassword') }}">
+                    <input type="text" style="display: none;" value="{{Name}}" name="Username">
+                    <input type="submit" value="Change Password">
+                </form>
+            </li>
+        </ul>
+    </div>
+</section>
+{% endblock %}

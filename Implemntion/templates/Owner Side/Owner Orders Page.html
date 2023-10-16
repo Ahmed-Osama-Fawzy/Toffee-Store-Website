@@ -1,0 +1,47 @@
+{% extends 'Fixed Side/Owner.html' %}
+{% block Body %}
+<section class="One">
+    <div class="X-Full">
+        <h1> Our Orders </h1>
+        <form>
+            <input type="search" name="SearchValue" placeholder="Search Bar">
+        </form>
+    </div>
+    <div class="Full">
+        <table>
+            <thead>
+                <th>
+                    <td> OrderId </td>
+                    <td> ClientId </td>
+                    <td> Total Price </td>
+                    <td> Address </td>
+                    <td> Name </td>
+                    <td> Mobile </td>
+                    <td> Delivery Date </td>
+                    <td> Delivery Time </td>
+                    <td> Buynig Method </td>
+                </th>
+            </thead>
+            <tbody>
+                {% for Item in Items %}
+                    <tr>
+                        <td> {{ loop.index }} </td>
+                        <td> {{ Item[0] }} </td>
+                        <td> {{ Item[1] }} </td>
+                        <td> {{ Item[2] }} </td>
+                        <td> {{ Item[3] }} </td>
+                        <td> {{ Item[4] }} </td>
+                        <td> {{ Item[5] }} </td>
+                        <td> {{ Item[6] }} </td>
+                        <td> {{ Item[7] }} </td>
+                        <td> {{ Item[8] }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </div>
+</section>
+{% endblock %}

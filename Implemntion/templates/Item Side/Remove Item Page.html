@@ -1,0 +1,20 @@
+{% extends 'Fixed Side/Admin.html' %}
+{% block Body %}
+<section class="Two">
+    <div class="Half">
+        <img src="{{ url_for('static' , filename='images/Sweet4.jpeg') }}">
+    </div>
+    <div class="Half">
+        <h1> Remove Sweet </h1>
+        <form method="post" action="{{ url_for('RemoveItem') }}">
+            <label> Sweet's Id </label>
+            {% if Value %}
+                <input type="number" required name="Id" value="{{ Value }}">
+            {% else %}
+                <input type="number" required name="Id">
+            {% endif %}
+            <input type="submit" value="Remove">
+        </form>
+    </div>
+</section>
+{% endblock %}

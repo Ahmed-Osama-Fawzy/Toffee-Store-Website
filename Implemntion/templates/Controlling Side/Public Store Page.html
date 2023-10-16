@@ -1,0 +1,35 @@
+{% extends 'Fixed Side/Visitor.html' %}
+{% block Body %}
+<section class="One Products">
+    <div class="X-Full">
+        <h1> OUR GALLARY </h1>
+        <form>
+            <input type="search" name="SearchValue" placeholder="Search Bar">
+        </form>
+    </div>
+    <div class="Full">
+        <ul>
+            {% for Item in Items %}
+                <li>
+                    <img src="{{ url_for('static' , filename='images/Sweets/'+ Item[5]) }}" alt="{{ Item[5] }}">
+                    <span class="Brand">{{ Item[2] }}</span>
+                    <span class="Category">{{ Item[3] }}</span>
+                    <h2 class="Name"> {{ Item[1] }} </h2>
+                    <p class="Price"> {{ Item[4] }} EG Pound</p>
+                    <br>
+                    <p class="Description"> {{ Item[6] }} </p>
+                    <p class="Commission"> By {{ Item[7] }} </p>
+                    {% if Item[8] %}
+                        <p class="Discount"> Sale {{ Item[8] }}% </p>
+                    {% endif %}
+                    <form method="post" action="{{ url_for('AddToCart') }}">
+                        <input type="number" name="Id" style="display: none" value="{{ Item[0] }}">
+                        <input type="number" name="Status" style="display: none" value="0">
+                        <input type="submit" value="Add To Cart">
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}

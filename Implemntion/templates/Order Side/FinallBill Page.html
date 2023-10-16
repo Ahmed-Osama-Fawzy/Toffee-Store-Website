@@ -1,0 +1,52 @@
+{% extends 'Fixed Side/Client.html' %}
+{% block Body %}
+<section class="One">
+    <div class="Full">
+        {{ data }}
+    </div>
+    <div class="Full">
+        <table>
+            <thead>
+                <th>
+                    <td> OrderId </td>
+                    <td> SweetId </td>
+                    <td> Name </td>
+                    <td> Brand </td>
+                    <td> Price </td>
+                    <td> Image </td>
+                    <td> Commission </td>
+                    <td> Discount </td>
+                    <td> Amount </td>
+                </th>
+            </thead>
+            <tbody>
+                {% for Item in Items %}
+                    <tr>
+                        <td> {{ loop.index }} </td>
+                        <td> {{ Item[0] }} </td>
+                        <td> {{ Item[1] }} </td>
+                        <td> {{ Item[2] }} </td>
+                        <td> {{ Item[3] }} </td>
+                        <td> {{ Item[5] }} </td>
+                        <td>
+                            <img src="{{ url_for('static' , filename='images/sweets/'+Item[6])}}">
+                        </td>
+                        <td> {{ Item[8] }} </td>
+                        <td> {{ Item[9] }} </td>
+                        <td> {{ Item[10] }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </div>
+    <div class="Center">
+        <form method="post" action="{{ url_for('CheckOut') }}">
+            <input style="display:none" type="number" value="{{ CId }}" name="CId">
+            <input type="submit" value="Sucess Bill">
+        </form>
+    </div>
+</section>
+{% endblock %}

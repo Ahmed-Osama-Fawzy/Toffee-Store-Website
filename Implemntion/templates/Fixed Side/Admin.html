@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='Main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='all.min.css') }}">
+    <link rel="icon" href="{{ url_for('static' , filename='images/image.jpeg') }}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <nav class="Main">
+        <ul>
+            <li>
+                <a href="{{ url_for('AdminHome') }}"> 
+                    <img src="{{ url_for('static' , filename='images/Logo.jpeg') }}" >
+                </a>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('AdminHome') }}"> 
+                    <input type="text" value="{{Name}}" style="display: none;" name="Username">
+                    <input type="submit" value="Home">
+                </form>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('AddItem') }}"> 
+                    <input type="text" value="{{Name}}" style="display: none;" name="Username">
+                    <input type="submit" value="Add Item">
+                </form>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('ModifyItem') }}"> 
+                    <input type="text" value="{{Name}}" style="display: none;" name="Username">
+                    <input type="submit" value="Modiy Item">
+                </form>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('RemoveItem') }}"> 
+                    <input type="text" value="{{Name}}" style="display: none;" name="Username">
+                    <input type="submit" value="Remove Item">
+                </form>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('AdminStore') }}"> 
+                    <input type="text" value="{{Name}}" style="display: none;" name="Username">
+                    <input type="submit" value="Our Store">
+                </form>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('AdminOrders') }}"> 
+                    <input type="text" value="{{Name}}" style="display: none;" name="Username">
+                    <input type="submit" value="Our Orders">
+                </form>
+            </li>
+            <li>
+                <a href="{{ url_for('SignOut') }}">
+                    Sign Out
+                </a>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('AdminProfile') }}"> 
+                    <input type="text" value="{{Name}}" style="display: none;" name="Username">
+                    <input type="submit" value="Profile">
+                </form>
+            </li>
+        </ul>
+    </nav>
+    {% block Body %}
+    {% endblock %}
+    <script src="{{ url_for('static' , filename='Main.js') }}"></script>
+    <script src="{{ url_for('static' , filename='all.min.js') }}"></script>
+    <script src="{{ url_for('static' , filename='all.js') }}"></script>
+</body>
+</html>

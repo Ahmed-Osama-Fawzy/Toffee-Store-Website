@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='Main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='all.min.css') }}">
+    <link rel="icon" href="{{ url_for('static' , filename='images/image.jpeg') }}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <nav class="Main">
+        <ul>
+            <li>
+                <a href="{{ url_for('HomePage') }}"> 
+                    <img src="{{ url_for('static' , filename='images/Logo.jpeg') }}" >
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('HomePage') }}">
+                    TOFFEE
+                </a>
+            </li>
+            <li>
+                <a href="#Services">
+                    Services
+                </a>
+            </li>
+            <li>
+                <a href="#AboutUs">
+                    About us
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('PublicStore') }}">
+                    Our Store
+                </a>
+            </li>
+            <li>
+                <a href="#Team">
+                    Our Team
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('LogIn') }}">
+                    Log In
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('SignUp') }}"> 
+                    Sign Up
+                </a>
+            </li>
+        </ul>
+    </nav>
+    {% block Body %}
+    {% endblock %}
+    <script src="{{ url_for('static' , filename='Main.js') }}"></script>
+    <script src="{{ url_for('static' , filename='all.min.js') }}"></script>
+    <script src="{{ url_for('static' , filename='all.js') }}"></script>
+</body>
+</html>

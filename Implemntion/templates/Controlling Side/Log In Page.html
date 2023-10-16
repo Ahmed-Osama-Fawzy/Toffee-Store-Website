@@ -1,0 +1,19 @@
+{% extends 'Fixed Side/Visitor.html' %}
+{% block Body %}
+<section class="Two">
+    <div class="Half">
+        <img src="{{ url_for('static' , filename='images/Sweet4.jpeg')}}">
+    </div> 
+    <div class="Half">
+        <h1> Login Into your Account </h1>
+        <form method="post" action="{{ url_for('AccessToAccount') }}">
+            <label> Username </label>
+            <input name="Username" type="text" placeholder="user name" required>
+            <label> Password </label>
+            <input name="Password" type="password" required>
+            <input type="submit" value="Send">
+        </form>
+        <a href="{{ url_for('ForgetPassword') }}"> Forgrt Password? </a>
+        <a href="{{ url_for('SignUp') }}"> Create New Account? </a>
+    </di
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'Fixed Side/Client.html' %}
+{% block Body %}
+<section class="Two">
+    <div class="Half">
+        <img src="{{ url_for('static' , filename='images/Sweet4.jpeg') }}">
+    </div>
+    <div class="Half">
+        <form method="post" action="{{ url_for('BuyMethod') }}">
+            <label> Full Name </label>
+            <input type="text" name="Name" required>
+            <label> Full Address </label>
+            <input type="text" name="Address" required>
+            <label> Mobile Number </label>
+            <input type="tel" name="Mobile" required>
+            <label> Delivery Date </label>
+            <input type="date" required name="DeliveryDate">
+            <label> Delivery Time </label>
+            <input type="time" required name="DeliveryTime">
+            <label> Buying Method </label>
+            <div>
+                <input type="radio" name="BuyMethod" id="Cash" value="1" required>
+                <label for="Cash">Cash With Delivery Man</label>
+                <br>
+                <input type="radio" name="BuyMethod" id="Visa" value="2" required>
+                <label for="Visa">Visa</label>
+                <br>
+                <input type="radio" name="BuyMethod" id="Fawry" value="3" required>
+                <label for="Fawry">Fawry</label>
+                <br>
+                <input type="radio" name="BuyMethod" id="EWallet" value="4" required>
+                <label for="EWallet">EWallet</label>
+            </div>
+            <input type="submit" value="BUY">
+            <input style="display:none" type="number" value="{{ CId }}" name="CId">
+            <input style="display:none" type="number" value="{{ Total }}" name="Total">
+        </form>
+        <div class="Center">
+            <h1> The Total Price Is {{ Total }} EG Pounds </h1>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='Main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='all.min.css') }}">
+    <link rel="icon" href="{{ url_for('static' , filename='images/image.jpeg') }}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <nav class="Main">
+        <ul>
+            <li>
+                <a href="{{ url_for('ClientHome') }}"> 
+                    <img src="{{ url_for('static' , filename='images/Logo.jpeg') }}" >
+                </a>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('ClientHome') }}"> 
+                    <input type="number" value="{{CId}}" style="display: none;" name="CId">
+                    <input type="submit" value="Home">
+                </form>
+            </li>
+            <li>
+                {% if Name %}
+                    Welcome Mr:{{ Name }}
+                {% endif %}
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('ClientOrder') }}"> 
+                    <input type="number" value="{{CId}}" style="display: none;" name="CId">
+                    <input type="submit" value="My Order">
+                </form>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('ClientStore') }}"> 
+                    <input type="number" value="{{CId}}" style="display: none;" name="CId">
+                    <input type="submit" value="The Store">
+                </form>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('ClientOrders') }}"> 
+                    <input type="number" value="{{CId}}" style="display: none;" name="CId">
+                    <input type="submit" value="Orders History">
+                </form>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('ClientCart') }}"> 
+                    <input type="number" value="{{CId}}" style="display: none;" name="CId">
+                    <input type="submit" value="Cart">
+                </form>
+            </li>
+            <li>
+                <a href="{{ url_for('SignOut') }}">
+                    Sign Out
+                </a>
+            </li>
+            <li>
+                <form method="post" action="{{ url_for('ClientProfile') }}"> 
+                    <input type="number" value="{{CId}}" style="display: none;" name="CId">
+                    <input type="submit" value="Profile">
+                </form>
+            </li>
+        </ul>
+    </nav>
+    {% block Body %}
+    {% endblock %}
+    <script src="{{ url_for('static' , filename='Main.js') }}"></script>
+    <script src="{{ url_for('static' , filename='all.min.js') }}"></script>
+    <script src="{{ url_for('static' , filename='all.js') }}"></script>
+</body>
+</html>
